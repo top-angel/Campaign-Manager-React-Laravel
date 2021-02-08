@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "e7c882f3-901e-4f1a-ae29-a2715fd25dfc",
+		"name": "Campaign manager demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get campaigns",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "page",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "per_page",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url_live}}/campaigns?page=1",
+					"host": [
+						"{{base_url_live}}"
+					],
+					"path": [
+						"campaigns"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Campaign",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Testing campaign",
+							"type": "text"
+						},
+						{
+							"key": "from_date",
+							"value": "2020-02-01",
+							"description": "Date for the campaign to start, must follow the format Y-m-d",
+							"type": "text"
+						},
+						{
+							"key": "to_date",
+							"value": "2020-02-28",
+							"description": "Date for the campaign to end, must follow the format Y-m-d",
+							"type": "text"
+						},
+						{
+							"key": "daily_budget",
+							"value": "10.00",
+							"description": "Should be in USD, must follow the floating rule and with 2 decimal places",
+							"type": "text"
+						},
+						{
+							"key": "total_budget",
+							"value": "300.00",
+							"description": "Should be in USD, must follow the floating point rule and with 2 decimal places",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"description": "Should be 1 or 0 respecitvely for Yes, and no",
+							"type": "text"
+						},
+						{
+							"key": "creative_uploads[]",
+							"description": "1 or more creative uploads, should be image files only. Available images png, jpeg, and jpg",
+							"type": "file",
+							"src": "/C:/Users/PC-90/Pictures/033_FR11785.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/campaigns",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"campaigns"
+					]
+				},
+				"description": "Submit a cmpaign to the system"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Campaign",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "udpated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/campaigns/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"campaigns",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get campaign",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/campaigns/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"campaigns",
+						"1"
+					]
+				},
+				"description": "To dhow single campaign entity"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/dws-campaign-manager/public/api"
+		},
+		{
+			"key": "base_url_live",
+			"value": "http://dwscamp.demoproject.info/api"
+		}
+	]
+}
