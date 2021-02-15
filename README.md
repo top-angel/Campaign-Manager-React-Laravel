@@ -14,8 +14,3 @@ Hey there, hope you're doing well here I'm submitting the work I've decided as p
 1. From the frontend directory, hit the command `npm i`
 2. It will install or required packages and then hit `npm run start` to start the application
 
-
-# Conclusion
-I apologize for the front-end code as I've did all the front-end in very quickly manner and didn't applied much good project structure , I can provide you some more portfolios which have a enterprise level standard coding structure for react apps. Although you can freely check the laravel coding standards which are strictly applied and verified too with a well known php-cs fixer extensions for double verify the standards. Hope you'll understand and yes don't forgot to ping me for any questions / details / queries.
-
-Thanks.
